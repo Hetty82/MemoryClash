@@ -6,16 +6,19 @@ const cards = [
   'witch'
 ]
 
-// - click event on 'new game' button
 window.addEventListener('load', onLoad);
 
+// - click event on 'new game' button
+// - click event on 'play' button
 function onLoad() {
   const $newGameButton = document.querySelector('#new-game');
+  const $playButton = document.querySelector('#play');
 
   // deal a game on 'new game'
   $newGameButton.addEventListener('click', dealGame);
 
-  // console.log($newGameButton);
+  // play game on 'play'
+  $playButton.addEventListener('click', playGame);
 }
 
 function dealGame() {
@@ -30,12 +33,11 @@ function dealGame() {
   // create tiles and assign cards to positions
   let tiles = createTiles(cards, randomPositions);
 
-  // convert game positions to JSON
+  // render game
+  renderGame(tiles);
+
+  // convert game positions to JSON and save to local storage
   let board = JSON.stringify(tiles);
-
-  console.log(board);
-
-  // save game (ID and positions) in local storage
   localStorage.board = board;
 }
 
@@ -79,10 +81,30 @@ function createTiles(cards, positions) {
   return tiles;
 }
 
-// - click event on 'start game' button
-//   - render game
-//   - timer starts
-//   - turn count 1++
+// render game
+function renderGame(tiles) {
+  let boardElement = document.querySelector('#board');
+  boardElement.innerHTML = "";
+
+  // order tiles based on random position
+  let orderedTiles = tiles.sort((a, b) => a.position - b.position);
+
+  // create dom elements 1 for each tile asign card name
+  orderedTiles.forEach((tile) => {
+    let element = document.createElement('div');
+    element.classList.add(`tile--${tile.card}`);
+    element.classList.add('tile--invisible');
+    element.textContent = tile.card;
+    // add to dom
+    boardElement.appendChild(element);
+  })
+}
+
+function playGame() {
+  //   - timer starts
+  //   - turn count 1++
+}
+
 
 // - click event on active tile
 //   - 1st: open card
