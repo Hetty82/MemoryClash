@@ -1,0 +1,19 @@
+.board
+  overflow: hidden
+  max-width: calc(400px + 4em)
+  margin-right: -1em
+
+  +el('tile')
+    float: left
+    width: 100px
+    height: 100px
+    margin: 0 1em 1em 0
+    border-radius: 5px
+    border: 2px solid $purple
+    box-shadow: 2px 2px 0 rgba(#000,0.5)
+    background: $blue-light no-repeat center
+    background-size: contain
+
+    +mod('invisible')
+      color: transparent
+      background: $blue-light url('images/question-mark.svg') no-repeat center !important

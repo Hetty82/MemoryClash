@@ -3,24 +3,25 @@
 <head>
   <meta charset="UTF-8">
   <title>Memory Clash</title>
+  <link rel="stylesheet" href="app.css">
 </head>
 
 <body>
   <main>
-    <header>
-      <h1>Memory Clash</h1>
-      <button id="new-game">New Game!</button>
+    <header class="header">
+      <h1 class="header__title">Memory Clash</h1>
+      <button class="header__title--button button button--new" id="new-game">New Game!</button>
     </header>
 
     <section id="app">
-      <div id="board"></div>
-      <button id="play">Play!</button>
-    </section>
+      <div class="board" id="board"></div>
+      <button class="button button--play" id="play">Play!</button>
 
-    <aside>
-      <span id="timer"></span>
-      <span id="turn-count"></span>
-    </aside>
+      <aside>
+        <span id="timer"></span>
+        <span id="turn-count"></span>
+      </aside>
+    </section>
   </main>
 
   <script src="app.js"></script>

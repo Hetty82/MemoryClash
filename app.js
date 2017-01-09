@@ -1,9 +1,10 @@
 const cards = [
-  'hog',
-  'valk',
+  'hog-rider',
+  'valkyrie',
   'wizard',
   'golem',
-  'witch'
+  'witch',
+  'dragon'
 ]
 
 window.addEventListener('load', onLoad);
@@ -92,8 +93,11 @@ function renderGame(tiles) {
   // create dom elements 1 for each tile asign card name
   orderedTiles.forEach((tile) => {
     let element = document.createElement('div');
-    element.classList.add(`tile--${tile.card}`);
-    element.classList.add('tile--invisible');
+    element.classList.add('board__tile');
+    element.classList.add(`board__tile--${tile.card}`);
+    element.classList.add('board__tile--invisible');
+    element.style.backgroundImage = `url(images/${tile.card}.png)`;
+    console.log(element.style);
     element.textContent = tile.card;
     // add to dom
     boardElement.appendChild(element);
