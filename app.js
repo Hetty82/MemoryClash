@@ -90,17 +90,39 @@ function renderGame(tiles) {
   // order tiles based on random position
   let orderedTiles = tiles.sort((a, b) => a.position - b.position);
 
-  // create dom elements 1 for each tile asign card name
+  // create dom elements for each tile
   orderedTiles.forEach((tile) => {
-    let element = document.createElement('div');
-    element.classList.add('board__tile');
-    element.classList.add(`board__tile--${tile.card}`);
-    element.classList.add('board__tile--invisible');
-    element.style.backgroundImage = `url(images/${tile.card}.png)`;
-    console.log(element.style);
-    element.textContent = tile.card;
+
+    // create containing tile element
+    let tileElement = document.createElement('div');
+    tileElement.classList.add('board__tile');
+
+    // add card and invisible as classnames
+    tileElement.classList.add(`board__tile--${tile.card}`);
+    tileElement.classList.add('board__tile--invisible');
+
+    // create flipper element and append to tile
+    let flipperElement = document.createElement('div');
+    flipperElement.classList.add('board__tile__flipper');
+    tileElement.appendChild(flipperElement);
+
+    // create and append front to flipper
+    let frontElement = document.createElement('div');
+    frontElement.classList.add('board__tile__front');
+    frontElement.style.backgroundImage = `url(images/${tile.card}.png)`;
+    // todo: remove later (add content text for clarity)
+    frontElement.textContent = tile.card;
+    flipperElement.appendChild(frontElement);
+
+    // create and append back to flipper
+    let backElement = document.createElement('div');
+    backElement.classList.add('board__tile__back');
+    flipperElement.appendChild(backElement);
+
+    console.log(tileElement);
+
     // add to dom
-    boardElement.appendChild(element);
+    boardElement.appendChild(tileElement);
   })
 }
 
