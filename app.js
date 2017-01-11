@@ -118,14 +118,15 @@ function renderGame(tiles) {
     backElement.classList.add('board__tile__back');
     flipperElement.appendChild(backElement);
 
-    console.log(tileElement);
-
     // add to dom
     boardElement.appendChild(tileElement);
   })
 }
 
 function playGame() {
+  tileElement = document.querySelector('.board__tile')
+  tileElement.classList.toggle('board__tile--visible');
+
   //   - timer starts
   //   - turn count 1++
 }
