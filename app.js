@@ -16,13 +16,13 @@ function onLoad() {
   const $playButton = document.querySelector('#play');
 
   // deal a game on 'new game'
-  $newGameButton.addEventListener('click', dealGame);
+  $newGameButton.addEventListener('click', newGame);
 
   // play game on 'play'
   $playButton.addEventListener('click', playGame);
 }
 
-function dealGame() {
+function newGame() {
   // create game-ID
   let gameID = 1;
   let numberOfPositions = cards.length * 2;
@@ -38,7 +38,7 @@ function dealGame() {
   let boardElement = document.querySelector('#board');
   boardElement.classList.remove('board--active');
 
-  // render game
+  // render new game
   renderGame(tiles);
 
   // convert game positions to JSON and save to local storage
