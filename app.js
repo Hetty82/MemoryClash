@@ -34,6 +34,10 @@ function dealGame() {
   // create tiles and assign cards to positions
   let tiles = createTiles(cards, randomPositions);
 
+  // remove 'active' board class
+  let boardElement = document.querySelector('#board');
+  boardElement.classList.remove('board--active');
+
   // render game
   renderGame(tiles);
 
