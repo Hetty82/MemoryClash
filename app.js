@@ -126,6 +126,8 @@ function renderGame(tiles) {
 function playGame() {
   //   - timer starts
   //   - turn count 1++
+  let boardElement = document.querySelector('#board');
+  boardElement.classList.add('board--active');
 
   let tileElements = document.querySelectorAll('.board__tile');
 
