@@ -1,0 +1,16 @@
+.button
+  padding: 0.3em 0.5em
+  font-family: $font-family-clash
+  border-radius: 5px
+  box-shadow: $shadow
+  background: $blue-light
+  +border(darken($blue-light, 40%))
+
+  cursor: pointer
+  transition: $transition
+
+  &:hover
+    background: darken($blue-light, 20%)
+
+  &:active
+    background: darken($blue-light, 30%)

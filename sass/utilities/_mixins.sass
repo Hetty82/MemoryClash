@@ -16,3 +16,7 @@
       &--#{$modifier} &
         &__#{$element}
           @content
+
+// include border with variable color
+@mixin border($color)
+  border: 2px solid $color

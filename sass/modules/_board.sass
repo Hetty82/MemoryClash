@@ -8,6 +8,9 @@
   +mod('active')
     filter: none
 
+  +mod('active', 'tile')
+    cursor: pointer
+
   +el('tile')
     $width: 100px
     $height: 100px
@@ -17,7 +20,6 @@
     margin: 0 1em 1em 0
     float: left
     perspective: 1000px
-    cursor: pointer
 
     +mod('visible', 'flipper')
       transform: rotateY(180deg)
@@ -31,8 +33,8 @@
       width: $width
       height: $height
       border-radius: 5px
-      border: 2px solid $purple
-      box-shadow: 2px 2px 0 rgba(#000,0.5)
+      +border($purple)
+      box-shadow: $shadow
 
       position: absolute
       top: 0
