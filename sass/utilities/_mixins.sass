@@ -1,9 +1,18 @@
+// accepts one or more BEM elements
 @mixin el($elements...)
   @each $element in $elements
     &__#{$element}
       @content
 
-@mixin mod($modifiers...)
-  @each $modifier in $modifiers
+// accepts a BEM modifier for direct styles and
+// optional child elements for child element styles
+@mixin mod($modifier, $elements...)
+  @if length($elements) < 1
     &--#{$modifier}
       @content
+
+  @else
+    @each $element in $elements
+      &--#{$modifier} &
+        &__#{$element}
+          @content
