@@ -99,7 +99,6 @@ function renderGame(tiles) {
 
     // add card and invisible as classnames
     tileElement.classList.add(`board__tile--${tile.card}`);
-    tileElement.classList.add('board__tile--invisible');
 
     // create flipper element and append to tile
     let flipperElement = document.createElement('div');

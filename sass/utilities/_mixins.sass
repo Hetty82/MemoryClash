@@ -1,0 +1,9 @@
+@mixin el($elements...)
+  @each $element in $elements
+    &__#{$element}
+      @content
+
+@mixin mod($modifiers...)
+  @each $modifier in $modifiers
+    &--#{$modifier}
+      @content

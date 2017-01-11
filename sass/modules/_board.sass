@@ -4,16 +4,45 @@
   margin-right: -1em
 
   +el('tile')
-    float: left
-    width: 100px
-    height: 100px
-    margin: 0 1em 1em 0
-    border-radius: 5px
-    border: 2px solid $purple
-    box-shadow: 2px 2px 0 rgba(#000,0.5)
-    background: $blue-light no-repeat center
-    background-size: contain
+    $width: 100px
+    $height: 100px
 
-    +mod('invisible')
+    width: $width
+    height: $height
+    margin: 0 1em 1em 0
+    float: left
+    perspective: 1000px
+
+    &:hover &
+      +el('flipper')
+        transform: rotateY(180deg)
+
+
+    +el('flipper')
+      position: relative
+      transform-style: preserve-3d
+      transition: 0.6s
+
+    +el('front', 'back')
+      width: $width
+      height: $height
+      border-radius: 5px
+      border: 2px solid $purple
+      box-shadow: 2px 2px 0 rgba(#000,0.5)
+
+      position: absolute
+      top: 0
+      right: 0
+      bottom: 0
+      left: 0
+      backface-visibility: hidden
+
+    +el('front')
       color: transparent
-      background: $blue-light url('images/question-mark.svg') no-repeat center !important
+      background: $orange-earth no-repeat center
+      background-size: contain
+      transform: rotateY(180deg)
+
+    +el('back')
+      background: $blue-light url('images/question-mark.svg') no-repeat center
+      z-index: 2
