@@ -124,15 +124,21 @@ function renderGame(tiles) {
 }
 
 function playGame() {
-  tileElement = document.querySelector('.board__tile')
-  tileElement.classList.toggle('board__tile--visible');
-
   //   - timer starts
   //   - turn count 1++
+
+  let tileElements = document.querySelectorAll('.board__tile');
+
+  tileElements.forEach(function(el) {
+    el.addEventListener("click", turnTile);
+  })
 }
 
+function turnTile() {
+  this.classList.toggle('board__tile--visible');
+}
 
-// - click event on active tile
+// click event on active tile
 //   - 1st: open card
 //   - 2nd:
 //     - open card
