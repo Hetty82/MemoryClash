@@ -1,5 +1,8 @@
 # Memory Clash Readme
 
+## Summary
+This is a JavaScript exercise Clash of Clans themed memory game.
+
 ## data structure
 
 must haves
