@@ -1,5 +1,4 @@
 .board
-  overflow: hidden
   max-width: calc(400px + 4em)
   margin-right: -1em
   transition: 0.2s
@@ -11,6 +10,37 @@
   +mod('active', 'tile')
     cursor: pointer
 
+  +mod('shuffle', 'tile')
+    @for $i from 1 through 10
+      &:nth-child(10n+#{$i})
+        animation: shuffle-#{$i} 1s linear
+
+    @at-root
+      @for $i from 1 through 10
+        $translate1: translate(random(400) - 200 + px, random(400) - 200 + px)
+        $rotate1: rotate(random(60) - 30 + deg)
+
+        $translate2: translate(random(300) - 150 + px, random(300) - 150 + px)
+        $rotate2: rotate(random(60) - 30 + deg)
+
+        $translate3: translate(random(200) - 100 + px, random(200) - 100 + px)
+        $rotate3: rotate(random(60) - 30 + deg)
+
+        $translate4: translate(random(200) - 100 + px, random(200) - 100 + px)
+        $rotate4: rotate(random(60) - 30 + deg)
+
+        @keyframes shuffle-#{$i}
+          0%, 100%
+            transform: translate(0) rotate(0deg)
+          20%
+            transform: $translate1 $rotate1
+          40%
+            transform: $translate2 $rotate2
+          60%
+            transform: $translate3 $rotate3
+          80%
+            transform: $translate4 $rotate4
+
   +el('tile')
     $width: 100px
     $height: 100px
@@ -19,6 +49,7 @@
     height: $height
     margin: 0 1em 1em 0
     float: left
+    transition: 0.2s
     perspective: 1000px
 
     +mod('visible', 'flipper')

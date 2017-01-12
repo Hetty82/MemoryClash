@@ -34,10 +34,6 @@ function newGame() {
   // create tiles and assign cards to positions
   let tiles = createTiles(cards, randomPositions);
 
-  // remove 'active' board class
-  let boardElement = document.querySelector('#board');
-  boardElement.classList.remove('board--active');
-
   // render new game
   renderGame(tiles);
 
@@ -90,6 +86,8 @@ function createTiles(cards, positions) {
 function renderGame(tiles) {
   let boardElement = document.querySelector('#board');
   boardElement.innerHTML = "";
+  boardElement.classList.remove('board--active');
+  boardElement.classList.add('board--shuffle');
 
   // order tiles based on random position
   let orderedTiles = tiles.sort((a, b) => a.position - b.position);
